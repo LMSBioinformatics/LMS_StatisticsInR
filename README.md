@@ -13,17 +13,15 @@
     <section class="page-header">
       <h1 class="project-name">Chipseq short</h1>
       <h2 class="project-tagline"></h2>
-      <a href="https://github.com/mrccsc/ChIPseq_short" class="btn">View on GitHub</a>
-      <a href="https://github.com/mrccsc/ChIPseq_short/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/mrccsc/ChIPseq_short/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/LMSBioinformatics/LMS_StatisticsInR" class="btn">View on GitHub</a>
+      <a href="https://github.com/LMSBioinformatics/LMS_StatisticsInR/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/LMSBioinformatics/LMS_StatisticsInR/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <h1>
-<a id="chip-seq-short-course" class="anchor" href="#chip-seq-short-course" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ChIP-seq (short course)</h1>
+<a id="LMS_StatisticsInR" class="anchor" href="#LMS_StatisticsInR" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LMS_StatisticsInR</h1>
 
-
-<p><a href="https://gitter.im/mrccsc/ChIPseq_short?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/mrccsc/ChIPseq_short"></a></p>
 
 <h2>
 <a id="the-course" class="anchor" href="#the-course" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Course</h2>
