@@ -23,7 +23,7 @@ The Team
 This course was created and conducted by the MRC London Institute of Medical Sciences Bioinformatics Team at Imperial College London, Hammersmith Hospital.
 For more information on the team see our [web page](http://bioinformatics.lms.mrc.ac.uk).
 
-This course is free for MRC LMS and Imperial staff and students. If you would like to attend a future course contact thomas.carroll@imperial.ac.uk.
+This course is free for MRC LMS and Imperial staff and students. If you would like to attend a future course contact mahdi.karimi@lms.mrc.ac.uk.
 
 Setting up.
 ========================================================
