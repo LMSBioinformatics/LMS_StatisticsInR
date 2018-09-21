@@ -52,7 +52,7 @@ You may navigate to the unarchived LMS_StatisticsInR folder in the Rstudio menu
 or in the console.
 
 ```{r,eval=F}
-setwd("/Volumes/bioinfomatics$/yfwang/CBW/StatisticsR_CBW18/course/")
+setwd("/Users/yfwang27/workfromhome/workshop/LMS_StatisticsInR/course")
 # e.g. setwd("~/Downloads/LMS_StatisticsInR")
 ```
 
@@ -1328,7 +1328,7 @@ summary(lmResult)$r.squared
 More about R-squared (15/23)
 =========================================================
 
-- Question: How would you describe (or summarize) the percentage of fat tissue when the **body weight information is absence**? Which information you would use to predict a new mouse's percentage of fat tissue?
+- Question: How would you describe (or summarize) the percentage of fat tissue for KO mice when the **body weight information is absence**? Which information you would use to predict a new KO mouse's percentage of fat tissue?
 
 ```{r,prompt=F,echo=T}
 KO_data$FatTissue.percent
@@ -1337,7 +1337,7 @@ KO_data$FatTissue.percent
 More about R-squared (16/23)
 =========================================================
 
-- Question: How would you describe (or summarize) the percentage of fat tissue when the **body weight information is absence**? Which information you would use to predict a new mouse's percentage of fat tissue?
+- Question: How would you describe (or summarize) the percentage of fat tissue for KO mice when the **body weight information is absence**? Which information you would use to predict a new KO mouse's percentage of fat tissue?
 
 - mean might be a good choice
 
@@ -1345,7 +1345,7 @@ More about R-squared (16/23)
 mean(KO_data$FatTissue.percent)
 ```
 
-- If we have a new child, we could assume that the kid's weight is around 38.384 pounds.
+- If we have a new mouse, we could assume that the new mouse's percentage of fat tissue is around 60.365 %
 
 More about R-squared (17/23)
 =========================================================
