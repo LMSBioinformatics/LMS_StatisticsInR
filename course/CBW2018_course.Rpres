@@ -1242,9 +1242,9 @@ for (i in 1:nrow(KO_data)){
 $$
 Error_i = y_i - \hat{y_i}
 \\
-y_i\text{: the observed weight of ith kid}
+y_i\text{: the observed percentage of fat tissue of ith kid}
 \\
-\hat{y_i}\text{: the predicted weight of ith kid}
+\hat{y_i}\text{: the predicted percentage of fat tissue of ith kid}
 \\
 Error_i^2  = (y_i - \hat{y_i})^2
 \\
@@ -1357,7 +1357,7 @@ More about R-squared (17/23)
 ```{r,echo=F,fig.width=5,fig.height=5,dpi=300,out.width="720px",height="720px"}
 diff_df<-KO_data$FatTissue.percent-mean(KO_data$FatTissue.percent)
 plot(KO_data$FatTissue.percent, ylim=c(-30,150),
-     ylab="weight (pounds)", xlab="x")
+     ylab="percentage of fat tissue", xlab="x")
 abline(h=mean(KO_data$FatTissue.percent),
        col="forestgreen",lwd=3,lty=1)
 ```

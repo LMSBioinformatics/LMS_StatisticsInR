@@ -1578,9 +1578,9 @@ It shows the variability that cannot be explained by the regression model
 $$
 Error_i = y_i - \hat{y_i}
 \\
-y_i\text{: the observed weight of ith kid}
+y_i\text{: the observed percentage of fat tissue of ith kid}
 \\
-\hat{y_i}\text{: the predicted weight of ith kid}
+\hat{y_i}\text{: the predicted percentage of fat tissue of ith kid}
 \\
 Error_i^2  = (y_i - \hat{y_i})^2
 \\
