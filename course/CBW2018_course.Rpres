@@ -1345,12 +1345,12 @@ More about R-squared (16/23)
 mean(KO_data$FatTissue.percent)
 ```
 
-- If we have a new mouse, we could assume that the new mouse's percentage of fat tissue is around 60.365 %
+- If we have a new mouse, we could assume that the new KO mouse's percentage of fat tissue is around 60.365 %
 
 More about R-squared (17/23)
 =========================================================
 
-- Question: How would you describe (or summarize) kid's weight when the **height information is absence**? Which information you would use to predict a new child's weight?
+- Question: How would you describe (or summarize) the percentage of fat tissue for KO mice when the **body weight information is absence**? Which information you would use to predict a new KO mouse's percentage of fat tissue?
 
 - mean might be a good choice
 
@@ -1375,7 +1375,7 @@ segments(x0=c(1:nrow(KO_data)),y0=KO_data$FatTissue.percent,
          x1=c(1:nrow(KO_data)),y1=mean(KO_data$FatTissue.percent),col="red",lwd=2)
 ```
 ***
-Residuals from the mean: assuming the independent variable (X), i.e. height in our case, does not exist
+Residuals from the mean: assuming the independent variable (X), i.e. body weight in our case, does not exist
 
 $$
 TSS=\text{Total Sum of Squares}=\sum_{i=1}^n(y_i-\overline y)^2
@@ -1385,7 +1385,7 @@ $$
 More about  about R-squared (19/23)
 =========================================================
 
-Residuals from the mean: assuming the independent variable (X), i.e. height in our case, does not exist
+Residuals from the mean: assuming the independent variable (X), i.e. body weight in our case, does not exist
 
 ```{r,echo=F}
 diff_df<-KO_data$FatTissue.percent-mean(KO_data$FatTissue.percent)
@@ -1444,7 +1444,7 @@ ggplot(data.frame(e=e,fit=fit4figure),aes(y=e,x=fit,fill=fit)) +
 More about R-squared - Calculating R-squared (21/23)
 =========================================================
 
-The fraction of variability in the independent variable (Y; or the *weight* in this example) that can be explained by the explanatory variable (X; or the *height* in this example).
+The fraction of variability in the independent variable (Y; or the *percentage of fat tissue* in this example) that can be explained by the explanatory variable (X; or the *body weight* in this example).
 
 $$
 TSS=\text{Total Sum of Squares}=\sum_{i=1}^n(y_i-\overline y)^2
