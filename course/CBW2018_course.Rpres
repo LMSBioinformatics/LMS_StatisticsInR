@@ -52,7 +52,7 @@ You may navigate to the unarchived LMS_StatisticsInR folder in the Rstudio menu
 or in the console.
 
 ```{r,eval=F}
-setwd("/Users/yfwang27/workfromhome/workshop/LMS_StatisticsInR/course")
+setwd("/CSC/workshop/LMS_StatisticsInR/course")
 # e.g. setwd("~/Downloads/LMS_StatisticsInR")
 ```
 
@@ -1242,9 +1242,9 @@ for (i in 1:nrow(KO_data)){
 $$
 Error_i = y_i - \hat{y_i}
 \\
-y_i\text{: the observed percentage of fat tissue of ith kid}
+y_i\text{: the observed percentage of fat tissue of ith mouse}
 \\
-\hat{y_i}\text{: the predicted percentage of fat tissue of ith kid}
+\hat{y_i}\text{: the predicted percentage of fat tissue of ith mouse}
 \\
 Error_i^2  = (y_i - \hat{y_i})^2
 \\
