@@ -2,7 +2,7 @@ Statistics in R
 ========================================================
 author: MRC LMS Bioinformatics Team
 
-date: 25/Sep/2018
+date: 25/Sep/2019
 
 The Course
 ========================================================
