@@ -53,7 +53,11 @@ or in the console.
 
 ```r
 setwd("/CSC/workshop/LMS_StatisticsInR/course")
-# e.g. setwd("~/Downloads/LMS_StatisticsInR")
+# if you are working with Mac
+# e.g. setwd("~/Downloads/LMS_StatisticsInR/course")
+
+# if you are working with Windows
+# e.g. setwd("~\\Downloads\\LMS_StatisticsInR\\course")
 ```
 
 Case study
@@ -829,7 +833,7 @@ List of 9
  $ parameter  : Named int [1:2] 9 8
   ..- attr(*, "names")= chr [1:2] "num df" "denom df"
  $ p.value    : num 0.367
- $ conf.int   : num [1:2] 0.122 2.186
+ $ conf.int   : atomic [1:2] 0.122 2.186
   ..- attr(*, "conf.level")= num 0.95
  $ estimate   : Named num 0.533
   ..- attr(*, "names")= chr "ratio of variances"
@@ -1527,7 +1531,7 @@ summary(resid(lmResult))
 
 ```
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--4.40385 -1.56712 -0.08214  0.00000  1.19506  7.92315 
+-4.40400 -1.56700 -0.08214  0.00000  1.19500  7.92300 
 ```
 
 ```r
@@ -1536,7 +1540,7 @@ summary(lmResult$residual)
 
 ```
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--4.40385 -1.56712 -0.08214  0.00000  1.19506  7.92315 
+-4.40400 -1.56700 -0.08214  0.00000  1.19500  7.92300 
 ```
 Ideally you would want your residuals to be normally distributed around 0.
 
