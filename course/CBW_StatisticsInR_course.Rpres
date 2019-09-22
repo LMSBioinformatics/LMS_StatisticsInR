@@ -1244,19 +1244,17 @@ for (i in 1:nrow(KO_data)){
 }
 ```
 ***
-$$
-Error_i = y_i - \hat{y_i}
-\\
-y_i\text{: the observed percentage of fat tissue of ith mouse}
-\\
-\hat{y_i}\text{: the predicted percentage of fat tissue of ith mouse}
-\\
-Error_i^2  = (y_i - \hat{y_i})^2
-\\
-\text{- sum of the square of the residuals (SSE)}
-\\
-SSE  = \sum_{i=1}^{n}(y_i-\hat{y_i})^2
-$$
+$$Error_i = y_i - \hat{y_i} $$
+
+$$y_i\text{: the observed percentage of fat tissue of ith mouse}$$
+
+$$\hat{y_i}\text{: the predicted percentage of fat tissue of ith mouse}$$
+
+$$Error_i^2  = (y_i - \hat{y_i})^2$$
+
+$$\text{- sum of the square of the residuals (SSE)}$$
+
+$$SSE  = \sum_{i=1}^{n}(y_i-\hat{y_i})^2$$
 
 
 
