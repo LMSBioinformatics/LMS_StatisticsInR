@@ -29,6 +29,51 @@ All prerequisites, links to material and slides for this course can be found on 
 Or can be downloaded as a zip archive from here.
 * [Download zip](https://github.com/LMSBioinformatics/LMS_StatisticsInR/archive/master.zip)
 
+
+Before we start...
+========================================================
+* Please make sure you activate the R script source panel
+<div align="center">
+<img src="figures/open_R_script.png" alt="path" height="700" width="1200">
+</div>
+
+
+
+Set the Working directory
+========================================================
+
+Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
+
+You may navigate to the unarchived LMS_StatisticsInR/course folder in the Rstudio menu
+
+**Session -> Set Working Directory -> Choose Directory**
+
+<div align="center">
+<img src="figures/R_set_path.png" alt="path" height="700" width="1200">
+</div>
+
+
+Set working directory - in the console
+========================================================
+
+Use getwd() to see where your current directory is
+
+```{r,eval=F} 
+getwd()
+```
+
+Use setwd() to set up your working directory
+
+```{r,eval=F}
+setwd("/Volumes/bioinfomatics$/yfwang/CBW/LMS_StatisticsInR/course")
+# if you are working with Mac
+# e.g. setwd("~/Downloads/LMS_StatisticsInR/course")
+
+# if you are working with Windows
+# e.g. setwd("~\\Downloads\\LMS_StatisticsInR\\course")
+
+```
+
 Materials. - Presentations, source code and practicals.
 ========================================================
 
@@ -39,49 +84,27 @@ Practicals as HTML pages.
 * **answers/**
 Practicals with answers as HTML pages.
 
-Set the Working directory
-========================================================
-
-Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived.
-
-You may navigate to the unarchived LMS_StatisticsInR folder in the Rstudio menu
-
-**Session -> Set Working Directory -> Choose Directory**
-
-or in the console.
-
-```{r,eval=F}
-
-setwd("/CSC/workshop/LMS_StatisticsInR/course")
-# if you are working with Mac
-# e.g. setwd("~/Downloads/LMS_StatisticsInR/course")
-
-# if you are working with Windows
-# e.g. setwd("~\\Downloads\\LMS_StatisticsInR\\course")
-
-```
-
 Case study
 ========================================================
 Start from some data for mouse strain BKS.Cg-Dock7m +/+ Leprdb/J (db/db)
 
 Data Source: Jackson Laboratory (https://phenome.jax.org/projects/Jaxpheno17)
 
-<img src="figure/good_format.png";>
+<img src="figures/good_format.png";>
 
-Save excel file as csv file
+Save excel file as csv (comma-separated values) file
 ========================================================
-<img src="figure/save_as_CSV.png";>
+<img src="figures/save_as_CSV.png";>
 
 We don't need a pretty excel file for the csv format
 ========================================================
-<img src="figure/pretty_format.png";>
+<img src="figures/pretty_format.png";>
 
 Load data
 ========================================================
 
 ```{r,prompt=F}
-alldata<-read.csv(file="data/mouse_BW_Fat_Glu_info.csv")
+MouseData<-read.csv(file="data/mouse_BW_Fat_Glu_info.csv")
 ```
 
 Data summary
@@ -112,7 +135,7 @@ eg. gender, hair colour, RNA-seq read count...
 
 Recap some basic R functions (1/7)
 ========================================================
-- **str()**, **head()**, **dim()**, **colnames()** and **summary()** functions
+- **head()**, **class()**, **str()**,  **dim()**, **colnames()** and **summary()** functions
 - more details please see [Reproducible R course](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
 
 -- [Data types in R]
@@ -121,21 +144,26 @@ Recap some basic R functions (1/7)
 Recap some basic R functions (2/7)
 ========================================================
 
-**head()**: See the first 6 lines of an R object
+**class()**: See the data type of a R object
 ```{r,prompt=F}
-head(alldata)
+class(MouseData)
+```
+
+**head()**: See the first 6 lines of a R object
+```{r,prompt=F}
+head(MouseData)
 ```
 
 Recap some basic R functions (3/7)
 ========================================================
-see the how many rows and columns in "alldata" object
+see the how many rows and columns in "MouseData" object
 ```{r,prompt=F}
-dim(alldata)
+dim(MouseData)
 ```
 
-see column names of "alldata"
+see column names of "MouseData"
 ```{r,prompt=F}
-colnames(alldata)
+colnames(MouseData)
 ```
 
 Recap some basic R functions (4/7)
@@ -145,22 +173,24 @@ Recap some basic R functions (4/7)
 
 Make sure the data format is correct for each column.
 ```{r,prompt=F}
-str(alldata)
+str(MouseData)
 ```
 
 Recap some basic R functions (5/7)
 ========================================================
 
 ```{r,prompt=F}
-summary(alldata)
+summary(MouseData)
 ```
 
 Recap some basic R functions (6/7)
 ========================================================
+**as.factor()** function: covert the data type of a vector to factor
 
 ```{r,prompt=F}
-alldata$Age<-as.factor(alldata$Age)
-summary(alldata)
+MouseData$Age<-as.factor(MouseData$Age)
+
+summary(MouseData)
 ```
 
 Recap some basic R functions (7/7)
@@ -168,57 +198,110 @@ Recap some basic R functions (7/7)
 
 **ftable()**: Create ‘flat’ contingency tables
 ```{r}
-ftable(alldata[,c("Age","Genotype")])
+ftable(MouseData[,c("Age","Genotype")])
 ```
+
+Normal brackets **( )**  is for function
+
+Square brackets **[ ]** is for subsetting
 
 Spread of data - working with plots (boxplot)
 ========================================================
-```{r,prompt=F}
+```{r,prompt=F,fig.height=10,fig.width=12}
 library(ggplot2)
-ggplot(alldata, aes(x=Genotype, y=BW.gram, fill=Age)) + geom_boxplot()
+ggplot(MouseData, aes(x=Genotype, y=BW.gram, fill=Age)) + geom_boxplot()
 ```
 
 Shape of data - working with plots 2 (Violin plot)
 ========================================================
-```{r,prompt=F}
+```{r,prompt=F,fig.height=10,fig.width=12}
 library(ggplot2)
-ggplot(alldata, aes(x=Genotype, y=BW.gram, fill=Age)) + geom_violin(position=position_dodge(width = 0.5)) +geom_boxplot(width=.1, outlier.colour=NA,position=position_dodge(width = 0.5))
+ggplot(MouseData, aes(x=Genotype, y=BW.gram, fill=Age)) + 
+  geom_violin(position=position_dodge(width = 0.5)) +
+  geom_boxplot(width=.1, outlier.colour=NA,position=position_dodge(width = 0.5))
 
 ```
 
 
-Spread of data - use body weight from WT mice (1/4)
+Spread of data - use body weight from WT mice (1/5)
 ========================================================
 
 - working with plots
 - more details please see [Reproducible R course](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
 
---[Plotting in R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
+```{r,prompt=F}
+head(MouseData)
+```
 
 ```{r,prompt=F}
-WT_data<-alldata[alldata$Genotype=="+/+",]
+# subset the MouseData
+WT_data<-MouseData[MouseData$Genotype=="+/+",]
 WT_data$BW.gram
 ```
 
-Spread of data - useful functions (2/4)
+Spread of data - useful functions (2/5)
 ========================================================
 
 **min()**, **max()**, **median()**, **range()** and **quantile()** functions
 ```{r,prompt=F}
+# return the minimum
 min.BW.gram<-min(WT_data$BW.gram)
+# return the maximum
 max.BW.gram<-max(WT_data$BW.gram)
+# return the median
 median.BW.gram<-median(WT_data$BW.gram)
+# return the mean
 mean.BW.gram<-mean(WT_data$BW.gram)
+# show the value of variables above
 c(min.BW.gram, max.BW.gram, median.BW.gram, mean.BW.gram)
 range(WT_data$BW.gram)
 quantile(WT_data$BW.gram)
 ```
 
-Spread of data - work with plots (3/4)
+Quick exercise - quantile()
+========================================================
+
+What will happen if you change the 
+**probs** argument from the default settings to **seq(0, 1, 0.2)**?
+
+```{r,prompt=F}
+quantile(WT_data$BW.gram)
+?quantile
+```
+
+## Usage
+
+    quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,
+         names = TRUE, type = 7, ...)
+
+Solution for the quick exercise - quantile()
+========================================================
+
+## Usage
+
+    quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,
+         names = TRUE, type = 7, ...)
+         
+### when the name of the arguments are ignored, the order of arguments is important      
+```{r,prompt=F}
+quantile(WT_data$BW.gram, seq(0, 1, 0.2))
+```
+
+### when the name of the arguments are presented, the order of arguments is not important
+```{r,eval=F,prompt=F}
+# argument names are presented
+quantile(x=WT_data$BW.gram, probs=seq(0, 1, 0.2))
+# or part of the argument names are presented
+quantile(x=WT_data$BW.gram, pro=seq(0, 1, 0.2))
+# or
+quantile(probs=seq(0, 1, 0.2), x=WT_data$BW.gram)
+```
+
+Spread of data - work with plots (3/5)
 ========================================================
 Left: 40%
 
-Boxplot
+base R graphics boxplot - Spear
 
 ```{r, echo=FALSE,fig.width=3.5,fig.height=3.5,dpi=300,out.width="720px",height="720px"}
 boxplot(WT_data$BW.gram,ylab="Body Weight (gram)")
@@ -228,11 +311,12 @@ abline(h=mean(WT_data$BW.gram),col="forestgreen",lwd=3)
 ```{r,prompt=F}
 c(min.BW.gram, max.BW.gram)
 c(median.BW.gram, mean.BW.gram)
+quantile(WT_data$BW.gram)
 quantile(WT_data$BW.gram)[c(2,4)]
 
 ```
 
-Spread of data -  work with plots (4/4)
+Spread of data -  work with plots (4/5)
 ========================================================
 **summary()**
 ```{r,prompt=F}
@@ -247,6 +331,36 @@ range(WT_data$BW.gram)
 IQR(WT_data$BW.gram)
 ```
 
+Spread of data - work with plots (5/5)
+========================================================
+
+```{r, echo=FALSE,fig.width=3.5,fig.height=3.5,dpi=300,out.width="720px",height="720px"}
+library(ggplot2)
+iqr15<-IQR(WT_data$BW.gram)*1.5
+q1<-unname(quantile(WT_data$BW.gram)[2])
+q3<-unname(quantile(WT_data$BW.gram)[4])
+x<-WT_data$BW.gram
+ggplot(WT_data, aes(x=Genotype, y=BW.gram))+
+  geom_boxplot()#+
+  #geom_hline(yintercept=c(min(max(x), q3+iqr15),
+  #                        max(min(x), q1-iqr15)),
+  #           col=c("red","blue"))
+
+```
+
+Tukey boxplot - geom_boxplot()
+
+upper whisker = min(max(x), Q_3 + 1.5 * IQR) 
+
+lower whisker = max(min(x), Q_1 – 1.5 * IQR)
+
+
+Spread of data - working with plots (boxplot)
+========================================================
+```{r,echo=T,prompt=F,fig.height=10,fig.width=12}
+library(ggplot2)
+ggplot(MouseData, aes(x=Genotype, y=BW.gram, fill=Age)) + geom_boxplot()
+```
 
 
 Spread of data - more about boxplot (optional 1/3)
@@ -356,6 +470,7 @@ ggplot(WT_data, aes(x=Genotype, y=BW.gram)) +
   theme_bw()+ coord_flip()
 
 ```
+
 Spread of data - Variance and Standard deviation (1/3)
 ========================================================
 
@@ -370,8 +485,11 @@ $$
   \end{aligned}
 $$
 ```{r,prompt=F}
+# calculate variance
 var.BW.gram<-sum((WT_data$BW.gram-mean.BW.gram)^2)/(nrow(WT_data)-1)
+# calculate standard deviation
 sd.BW.gram<-sqrt(var.BW.gram)
+# show the results
 c(var.BW.gram, sd.BW.gram)
 ```
 
@@ -672,7 +790,7 @@ Use the WT dataset as example: Is the body weight of WT in Age 8 weeks and Age 1
 
 
 ```{r, warning=FALSE, eval=T,echo=T}
-WT_data<-alldata[alldata$Genotype=="+/+",]
+WT_data<-MouseData[MouseData$Genotype=="+/+",]
 boxplot(BW.gram~Age,data=WT_data)
 ```
 
@@ -822,7 +940,7 @@ Back to our mouse dataset
 Is there body weight different between WT and KO mice?
 
 ```{r}
-WT_dbdb_data<-alldata[alldata$Genotype!="db/+",]
+WT_dbdb_data<-MouseData[MouseData$Genotype!="db/+",]
 WT_dbdb_data<-droplevels(WT_dbdb_data)
 boxplot(BW.gram~Genotype,data=WT_dbdb_data)
 ```
@@ -936,14 +1054,14 @@ Assume that
 ANOVA (2/5)
 ========================================================
 ```{r}
-boxplot(BW.gram~Genotype,data=alldata)
+boxplot(BW.gram~Genotype,data=MouseData)
 ```
 
 
 ANOVA - use the lm() function (3/5)
 ========================================================
 ```{r}
-lmPG<-lm(formula = BW.gram ~ Genotype,data = alldata)
+lmPG<-lm(formula = BW.gram ~ Genotype,data = MouseData)
 lmPG
 
 ```
@@ -1017,7 +1135,7 @@ Correlation example (3/6)
 Example of our mouse data. We would like to see whether there is a relationship between body weight and the percentage of fat tissue in the WT mice.
 
 ```{r,prompt=F}
-KO_data<-alldata[alldata$Genotype=="db/db",]
+KO_data<-MouseData[MouseData$Genotype=="db/db",]
 head(KO_data)
 cor(KO_data$BW.gram,KO_data$FatTissue.percent)
 
@@ -1086,7 +1204,7 @@ Linear regression (2/23)
 left: 70%
 We use KO mouse dataset as example and see whether we can use mouse body weight to predict the percentage of fat tissue.
 ```{r,prompt=F}
-KO_data<-alldata[alldata$Genotype=="db/db",]
+KO_data<-MouseData[MouseData$Genotype=="db/db",]
 head(KO_data)
 
 ```

@@ -369,14 +369,14 @@ summary {
 </div>
 
 
-<p>These exercises cover the sections of Statistics in R <a href="%22../Session1_describe_the_data.html%22">Session1: data summary</a>.</p>
+<p>These exercises cover the sections of Statistics in R <a href="%22../CBW_StatisticsInR_course.html%22">Statistics in R</a>.</p>
 <p><strong>Exercise 1</strong></p>
 <ul>
 <li>Read in the file Life_expectancy_at_birth.csv.</li>
 </ul>
 <pre class="r"><code> Life_exp&lt;-read.csv(&quot;../data/Life_expectancy_at_birth.csv&quot;,header=T)</code></pre>
 <ul>
-<li>Use the <em>head()</em> function to show the first 6 rows of the data. How many variables are there?</li>
+<li>Use the <code>head()</code> function to show the first 6 rows of the data. How many variables are there?</li>
 </ul>
 <pre class="r"><code> head(Life_exp)</code></pre>
 <pre><code>##        time    area life.expectancy gender
@@ -387,7 +387,7 @@ summary {
 ## 5 1995-1997 England           74.61  Males
 ## 6 1996-1998 England           74.84  Males</code></pre>
 <ul>
-<li>Use the <em>str()</em> function to see the data type of each column.</li>
+<li>Use the <code>str()</code> function to see the data type of each column.</li>
 </ul>
 <pre class="r"><code> str(Life_exp)</code></pre>
 <pre><code>## 'data.frame':    160 obs. of  4 variables:
@@ -396,7 +396,7 @@ summary {
 ##  $ life.expectancy: num  73.7 74 74.2 74.4 74.6 ...
 ##  $ gender         : Factor w/ 2 levels &quot;Females&quot;,&quot;Males&quot;: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
 <ul>
-<li>Use the <em>summary()</em> function to show the summarized information of the dataset.</li>
+<li>Use the <code>summary()</code> function to show the summarized information of the dataset.</li>
 </ul>
 <pre class="r"><code> summary(Life_exp)</code></pre>
 <pre><code>##         time            area    life.expectancy     gender  
