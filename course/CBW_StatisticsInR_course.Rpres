@@ -884,7 +884,7 @@ result$data.name
 
 Independent t-test (7/8)
 ========================================================
-We have ascertained that Ration1 and Ration2 have similar variances. We can therefore perform a standard t-test to assess the significance of differences between these groups.
+We have ascertained that WT 8 weeks and WT 16 weeks have similar variances. We can therefore perform a standard t-test to assess the significance of differences between these groups.
 
 $$H_0:\mu_{WT_{8w}}= \mu_{WT_{16w}}
 \\
@@ -893,6 +893,7 @@ H_a:\mu_{WT_{8w}}\neq \mu_{WT_{16w}}$$
 ```{r}
 test_res <- t.test(WT_8w_data$BW.gram,WT_16w_data$BW.gram,alternative ="two.sided", var.equal = T)
 test_res
+
 ```
 
 T-test example - Specifying a formula (8/8)
@@ -1031,14 +1032,14 @@ $$H_0:\text{ the odds ratio is no larger than 1}
 \\
 H_a:\text{ the odds ratio is larger than 1 }$$
 
-Assuming there are 20,000 genes in the mouse genome, we have gene list A (300 genes) and B (50 genes). The number of overlap genes between list A and B is 5. Is the overlap between the two list significant?
+Assuming there are 20,000 genes in the mouse genome, we have differential expression (DE) gene list A (300 genes) from a RNAseq experiment, and a gene list B (50 genes) relating to T cell migration from the literature. The number of overlap genes between DE genes and T cell migration genes is 5. Is the overlap between the two list significant?
 
 fisher.test()
 ========================================================
 create a contigency table
 
 ```{r,prompt=F}
-cmatrix<-matrix(c(5,40,295,19960),byrow=T,ncol=2,dimnames=list(c("In.B","Not.In.B"),c("In.A","Not.In.A")))
+cmatrix<-matrix(c(5,45,295,19655),byrow=T,ncol=2,dimnames=list(c("In.B","Not.In.B"),c("In.A","Not.In.A")))
 cmatrix
 
 ```
@@ -1129,7 +1130,7 @@ In this example we use **cor()** to identify the Pearson correlation between two
 - Perfectly posively correlated vectors will return 1
 - Perfectly negatively correlated vectors will return -1
 - Vectors showing no or little linear correlation will be close to 0.
-
+- when it comes to correlation, always check the scatter plot for your data
 
 Correlation between vectors (2/6)
 =========================================================
@@ -1180,6 +1181,7 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 - subset mouse dataset
 ```{r,prompt=F}
+head(KO_data)
 mouse4cor<-KO_data[,c(6:8)]; 
 
 ```
@@ -1201,6 +1203,45 @@ Correlation (6/6)
 ```{r,prompt=F,fig.width=5,fig.height=5,dpi=300,out.width="650px",height="650px"}
 pairs(mouse4cor)
 ```
+
+Quick practice
+========================================================
+```{r,prompt=F,fig.width=5,fig.height=5,dpi=300,out.width="650px",height="650px"}
+cor_aq<-read.csv("data/AQ.csv")
+head(cor_aq)
+```
+Please calculate the following correlations
+  
+  x1 vs y1
+  
+  x2 vs y2
+  
+  x3 vs y3
+  
+  x4 vs y4
+
+Solution for quick practice
+========================================================
+```{r,prompt=F,fig.width=5,fig.height=5,dpi=300,out.width="650px",height="650px"}
+c1<- cor(cor_aq$x1, cor_aq$y1)
+c2<- cor(cor_aq$x2, cor_aq$y2)
+c3<- cor(cor_aq$x3, cor_aq$y3)
+c4<- cor(cor_aq$x4, cor_aq$y4)
+c(c1, c2, c3, c4)
+```
+
+
+Scatter plot for the quick practice - Anscombe's quartet
+========================================================
+```{r,echo=F,prompt=F,fig.width=10,fig.height=10,dpi=300,out.width="1000px",height="800px"}
+par(mfrow=c(2,2))
+plot(cor_aq$x1, cor_aq$y1, pch=20, col="blue", cex=2)
+plot(cor_aq$x2, cor_aq$y2, pch=20, col="blue", cex=2)
+plot(cor_aq$x3, cor_aq$y3, pch=20, col="blue", cex=2)
+plot(cor_aq$x4, cor_aq$y4, pch=20, col="blue", cex=2)
+par(mfrow=c(1,1))
+```
+
 Linear regression (1/23)
 =========================================================
 
