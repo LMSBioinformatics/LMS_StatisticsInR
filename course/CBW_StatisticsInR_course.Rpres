@@ -611,6 +611,11 @@ Normal distribution example (6/10)
   
   We can use **rnorm()** function to generate random values following a normal distribution. Here we produce 10 normally distributed numeric values with mean 8 and standard deviation of 3
 
+
+## Usage
+
+    rnorm(n, mean = 0, sd = 1)
+
 ```{r}
 set.seed(2)
 rnorm(10,mean=8,sd=3)
@@ -637,6 +642,10 @@ Normal distribution example (7/10)
 
 The probablity of a value being VERY close to 8 (or exactly 8 for discrete distributions) for a distribution of mean 8 and standard deviation 3.
 
+## Usage
+
+    dnorm(x, mean = 0, sd = 1, log = FALSE)
+    
 ```{r}
 dnorm(8,mean=8,sd=3)
 ```
@@ -733,6 +742,20 @@ hist(x)
 ztransfer<-scale(x)
 hist(ztransfer)
 ```
+
+
+
+Time for an exercise!
+========================================================
+
+Exercise on this part can be found [here](./exercises/Session1_exercise1.html)
+
+
+Answers to exercise.
+========================================================
+
+Answers can be found [here](./answers/Session1_answers1.html)
+
 
 
 Hypothesis testing and ANOVA
@@ -1477,7 +1500,7 @@ More about R-squared (17/23)
 
 ```{r,echo=F,fig.width=5,fig.height=5,dpi=300,out.width="720px",height="720px"}
 diff_df<-KO_data$FatTissue.percent-mean(KO_data$FatTissue.percent)
-plot(KO_data$FatTissue.percent, ylim=c(-30,150),
+plot(KO_data$FatTissue.percent, ylim=c(-5,80),
      ylab="percentage of fat tissue", xlab="x")
 abline(h=mean(KO_data$FatTissue.percent),
        col="forestgreen",lwd=3,lty=1)
@@ -1488,7 +1511,7 @@ More about R-squared - TSS (18/23)
 
 ```{r,echo=F,fig.width=5,fig.height=5,dpi=300,out.width="720px",height="720px"}
 diff_df<-KO_data$FatTissue.percent-mean(KO_data$FatTissue.percent)
-plot(KO_data$FatTissue.percent, ylim=c(0,100),
+plot(KO_data$FatTissue.percent, ylim=c(-5,80),
      ylab="fat tissue (%)", xlab="x")
 abline(h=mean(KO_data$FatTissue.percent),
        col="forestgreen",lwd=3,lty=1)
@@ -1510,7 +1533,7 @@ Residuals from the mean: assuming the independent variable (X), i.e. body weight
 
 ```{r,echo=F}
 diff_df<-KO_data$FatTissue.percent-mean(KO_data$FatTissue.percent)
-plot(KO_data$FatTissue.percent, ylim=c(-30,150),
+plot(KO_data$FatTissue.percent, ylim=c(-5,80),
      ylab="rediduals (fat tissue %)", xlab="body weight (gram)")
 abline(h=mean(KO_data$FatTissue.percent),
        col="forestgreen",lwd=3,lty=1)
@@ -1532,7 +1555,7 @@ $$
 Residuals from the model
 
 ```{r,echo=F}
-plot(KO_data$BW.gram,lmResult$residual,ylim=c(-30,150),
+plot(KO_data$BW.gram,lmResult$residual,ylim=c(-5,80),
      ylab="rediduals (fat tissue %)",xlab="body weight (gram)")
 abline(h=0,col="blueviolet",lwd=3, lty=1)
 x<-KO_data$BW.gram

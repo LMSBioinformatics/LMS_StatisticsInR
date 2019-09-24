@@ -369,14 +369,14 @@ summary {
 </div>
 
 
-<p>These exercises cover the sections of Statistics in R <a href="%22../Session2_hypothesis_testing.html%22">Session2: Hypothesis Testing and ANOVA</a>.</p>
+<p>These exercises cover the sections of Statistics in R <a href="%22../CBW_StatisticsInR_course.html#/54%22">Session2: Hypothesis Testing and ANOVA</a>.</p>
 <p><strong>Exercise 1</strong></p>
 <ul>
 <li>Read in the file categoriesAndExpression.txt.</li>
 </ul>
 <pre class="r"><code> catAndExpr&lt;- read.delim(&quot;../data/categoriesAndExpression.txt&quot;,header=T)</code></pre>
 <ul>
-<li>How many genes are ofInterest and how many in pathways.</li>
+<li>How many genes are in <code>ofInterest</code> and how many in <code>pathways</code>.</li>
 </ul>
 <pre class="r"><code> summary(catAndExpr)</code></pre>
 <pre><code>##     geneName        ofInterest       pathway     Expression   
@@ -388,7 +388,7 @@ summary {
 ##  Gene13 : 1                                    Max.   :74.08  
 ##  (Other):94</code></pre>
 <ul>
-<li>What are quantiles of expression overall, in Glycolysis genes and in TGFb genes.</li>
+<li>What are the quantiles of overall <code>Expression</code>, and in <code>Glycolysis</code> genes and in <code>TGFb</code> genes.</li>
 </ul>
 <pre class="r"><code> summary(catAndExpr)</code></pre>
 <pre><code>##     geneName        ofInterest       pathway     Expression   
@@ -418,7 +418,7 @@ summary {
 ##  Gene20 : 1                                    Max.   :66.10  
 ##  (Other):39</code></pre>
 <ul>
-<li>How many genes were selected and in Glycolysis pathway.</li>
+<li>How many genes were <code>selected</code> and in the <code>Glycolysis</code> pathway.</li>
 </ul>
 <pre class="r"><code>contingency &lt;- ftable(catAndExpr[,c(&quot;ofInterest&quot;,&quot;pathway&quot;)])
 contingency</code></pre>
@@ -435,7 +435,7 @@ contingency</code></pre>
 ## NotSelected                 40   40</code></pre>
 <pre class="r"><code>#fisher.test(contingency)</code></pre>
 <ul>
-<li>Given a normal distibution for the data, what is the probablity of selecting a gene with at least the expression level of “Gene13”</li>
+<li>Given a normal distibution for the data, what is the probablity of selecting a gene with at least the expression level of <code>&quot;Gene13&quot;</code></li>
 </ul>
 <pre class="r"><code>meanExpression &lt;- mean(catAndExpr$Expr)
 sdExpression &lt;- sd(catAndExpr$Expr)
@@ -443,7 +443,7 @@ Gene13Expression &lt;- catAndExpr[catAndExpr$geneName == &quot;Gene13&quot;,]$Ex
 1-pnorm(Gene13Expression,meanExpression,sdExpression)</code></pre>
 <pre><code>## [1] 0.0254759</code></pre>
 <ul>
-<li>Perform a t-test to evaluate the difference between Glycolysis and TGFb pathway.</li>
+<li>Perform a t-test to evaluate the difference of the <code>Expression</code> levels between genes in the <code>Glycolysis</code> pathway and genes in the <code>TGFb</code> pathway.</li>
 </ul>
 <pre class="r"><code>glycolysisExpression &lt;- catAndExpr[catAndExpr$pathway == &quot;Glycolysis&quot;,]$Expression
 tgfbExpression &lt;- catAndExpr[catAndExpr$pathway == &quot;TGFb&quot;,]$Expression
@@ -473,7 +473,7 @@ var.test(glycolysisExpression,tgfbExpression)</code></pre>
 ##  29.77779  54.23573</code></pre>
 <p><strong>Exercise 2</strong></p>
 <ul>
-<li>Read in the file Life_expectancy_at_birth.csv.</li>
+<li>Read in the file <code>Life_expectancy_at_birth.csv</code>.</li>
 </ul>
 <pre class="r"><code>  Life_exp&lt;-read.csv(&quot;../data/Life_expectancy_at_birth.csv&quot;,header=T)
   head(Life_exp)</code></pre>
@@ -499,7 +499,7 @@ var.test(glycolysisExpression,tgfbExpression)</code></pre>
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <ul>
-<li>If the mean of life expectancy differs across different areas in the UK, perform the post-hoc analysis using TukeyHSD().</li>
+<li>If the mean of life expectancy differs across different areas in the UK, perform the post-hoc analysis using <code>TukeyHSD()</code>.</li>
 </ul>
 <pre class="r"><code>  TukeyHSD(aov(LifeExp.lm))</code></pre>
 <pre><code>##   Tukey multiple comparisons of means

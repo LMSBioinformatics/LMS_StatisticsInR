@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-These exercises cover the sections of Statistics in R [Session2: Hypothesis Testing and ANOVA]("../Session2_hypothesis_testing.html").
+These exercises cover the sections of Statistics in R [Session2: Hypothesis Testing and ANOVA]("../CBW_StatisticsInR_course.html#/54").
 
 **Exercise 1**
 
@@ -15,17 +15,17 @@ These exercises cover the sections of Statistics in R [Session2: Hypothesis Test
 ```{r,message=T}
  catAndExpr<- read.delim("../data/categoriesAndExpression.txt",header=T)
 ```
-- How many genes are ofInterest and how many in pathways.
+- How many genes are in `ofInterest` and how many in `pathways`.
 ```{r,message=T}
  summary(catAndExpr)
 ```
-- What are quantiles of expression overall, in Glycolysis genes and in TGFb genes.
+- What are the quantiles of overall `Expression`, and in `Glycolysis` genes and in `TGFb` genes.
 ```{r,message=T}
  summary(catAndExpr)
  summary(catAndExpr[catAndExpr$pathway == "Glycolysis",])
  summary(catAndExpr[catAndExpr$pathway == "TGFb",])
 ```
-- How many genes were selected and in Glycolysis pathway.
+- How many genes were `selected` and in the `Glycolysis` pathway.
 ```{r,message=T}
 contingency <- ftable(catAndExpr[,c("ofInterest","pathway")])
 contingency
@@ -35,7 +35,7 @@ contingency
 #fisher.test(contingency)
 
 ```
-- Given a normal distibution for the data, what is the probablity of selecting a gene with at least the expression level of "Gene13"
+- Given a normal distibution for the data, what is the probablity of selecting a gene with at least the expression level of `"Gene13"`
 ```{r,message=T}
 meanExpression <- mean(catAndExpr$Expr)
 sdExpression <- sd(catAndExpr$Expr)
@@ -43,7 +43,7 @@ Gene13Expression <- catAndExpr[catAndExpr$geneName == "Gene13",]$Expression
 1-pnorm(Gene13Expression,meanExpression,sdExpression)
 ```
 
-- Perform a t-test to evaluate the difference between Glycolysis and TGFb pathway.
+- Perform a t-test to evaluate the difference of the `Expression` levels between genes in the `Glycolysis` pathway and genes in the `TGFb` pathway.
 ```{r,message=T}
 glycolysisExpression <- catAndExpr[catAndExpr$pathway == "Glycolysis",]$Expression
 tgfbExpression <- catAndExpr[catAndExpr$pathway == "TGFb",]$Expression
@@ -53,7 +53,7 @@ t.test(glycolysisExpression,tgfbExpression,var.equal = FALSE)
 
 **Exercise 2**
 
-- Read in the file Life_expectancy_at_birth.csv.
+- Read in the file `Life_expectancy_at_birth.csv`.
 ```{r,message=T}
   Life_exp<-read.csv("../data/Life_expectancy_at_birth.csv",header=T)
   head(Life_exp)
@@ -64,7 +64,7 @@ t.test(glycolysisExpression,tgfbExpression,var.equal = FALSE)
   LifeExp.anova<-anova(LifeExp.lm)
   LifeExp.anova
 ```
-- If the mean of life expectancy differs across different areas in the UK, perform the post-hoc analysis using TukeyHSD().
+- If the mean of life expectancy differs across different areas in the UK, perform the post-hoc analysis using `TukeyHSD()`.
 ```{r,message=T}
   TukeyHSD(aov(LifeExp.lm))
 

@@ -7,13 +7,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-These exercises cover the sections of Statistics in R [Session1: data summary]("../Session1_describe_the_data.html").
+These exercises cover the sections of [Statistics in R]("../CBW_StatisticsInR_course.html").
 
 **Exercise 2**
 
-- Use *pnorm()* function to see the probablity of a value being less than or equal to 2 for a normal distribution of mean 0 and standard deviation 1
+- Use `pnorm()` function to see the probablity of a value being less than or equal to 2 for a normal distribution of mean 0 and standard deviation 1
 
-- What is the probablity of a value being bigger than 2 for a normal distribution of mean 0 and standard deviation 1 (hint: use *?pnorm* in the Console and read the "help" tab in the lower right panel)
+- What is the probablity of a value being bigger than 2 for a normal distribution of mean 0 and standard deviation 1 (hint: use `?pnorm` in the Console and read the "help" tab in the lower right panel)
 
 **bonus question (optional)**
 
@@ -24,7 +24,7 @@ load("../data/gene_exp_matrix.RData")
 head(gene_exp_matrix)
 ```
 
-- use the gene expression to draw a heatmap
+- use the gene expression to draw a heatmap (you might need to install the gplots package)
 ```{r}
 #install.packages("gplots")
 library(gplots)
@@ -33,7 +33,7 @@ heatmap.2(gene_exp_matrix,symkey=FALSE, trace="none",cexCol=0.75,cexRow=0.35,
 
 ```
 
-- Use the *scale()* function to perform the Z-score transformation, and use the code above to generate the heatmap again (hint: read the help page of *?scale*, and you might need to use *t()* function as well)
+- Use the `scale()` function to perform the Z-score transformation, and use the code above to generate the heatmap again (hint: read the help page of `?scale`, and you might need to use `t()` function as well)
 
 
 

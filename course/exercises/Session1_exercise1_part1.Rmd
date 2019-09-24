@@ -5,15 +5,15 @@ date: "25/Sep/2019"
 output: html_document
 ---
 
-These exercises cover the sections of Statistics in R [Statistics in R]("../CBW_StatisticsInR_course.html").
+These exercises cover the sections of [Statistics in R]("../CBW_StatisticsInR_course.html").
 
 **Exercise 1**
 
-- Read in the file Life_expectancy_at_birth.csv.
+- Read in the file `data/Life_expectancy_at_birth.csv`.
 - Use the `head()` function to show the first 6 rows of the data. How many variables are there?
 - Use the `str()` function to see the data type of each column.
 - Use the `summary()` function to show the summarized information of the dataset. Which columns contain the discrete (categorical) data and which columns contain the continuous data?
-- How many males and females are in England. (hint: subset the data with Life_exp$area=="England").
+- How many males and females are in England. (hint: subset the data with `Life_exp$area=="England"`).
 - Which function will you use to see the maximum and minumum of the life.expectancy in England?  
 - What is the median life expenctancies of of Males and Females, respectively, in England?
 - What are quantiles of the life.expectancy in Wales, N.Ireland, and in Scotland, respectively.
@@ -21,9 +21,9 @@ These exercises cover the sections of Statistics in R [Statistics in R]("../CBW_
 
 [self check]
 
-Q: Can't read in the "Life_expectancy_at_birth.csv"?
+Q: Can't read in the `"Life_expectancy_at_birth.csv"`?
 
-A: Please check your current directory by using *getwd()* function in the Console. If it is not the correct directory, please use *setwd()* function to switch to the correct one.
+A: Please check your current directory by using `getwd()` function in the Console. If it is not the correct directory, please use `setwd()` function to switch to the correct one.
 
 
 

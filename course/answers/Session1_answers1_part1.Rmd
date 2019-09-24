@@ -5,11 +5,11 @@ date: "25/Sep/2019"
 output: html_document
 ---
 
-These exercises cover the sections of Statistics in R [Statistics in R]("../CBW_StatisticsInR_course.html").
+These exercises cover the sections of [Statistics in R]("../CBW_StatisticsInR_course.html").
 
 **Exercise 1**
 
-- Read in the file Life_expectancy_at_birth.csv.
+- Read in the file `data/Life_expectancy_at_birth.csv`.
 ```{r,message=T}
  Life_exp<-read.csv("../data/Life_expectancy_at_birth.csv",header=T)
 ```

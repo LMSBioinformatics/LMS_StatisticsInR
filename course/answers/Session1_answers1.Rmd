@@ -5,16 +5,16 @@ date: "25/Sep/2019"
 output: html_document
 ---
 
-These exercises cover the sections of Statistics in R [Session1: data summary]("../Session1_describe_the_data.html").
+These exercises cover the sections of [Statistics in R]("../CBW_StatisticsInR_course.html").
 
 **Exercise 2**
 
-- Use the **pnorm()** function to see the probablity of a value being less than or equal to 2 for a normal distribution of mean 0 and standard deviation 1
+- Use the `pnorm()` function to see the probablity of a value being less than or equal to 2 for a normal distribution of mean 0 and standard deviation 1
 ```{r,message=T}
  pnorm(2,mean=0,sd=1)
 ```
 
-- What is the probablity of a value being bigger than 2 for a normal distribution of mean 0 and standard deviation 1 (hint: use **?pnorm** in the Console and read the "help" tab in the lower right panel)
+- What is the probablity of a value being bigger than 2 for a normal distribution of mean 0 and standard deviation 1 (hint: use `pnorm` in the Console and read the "help" tab in the lower right panel)
 ```{r,message=T}
 # option 1
   pnorm(2,mean=0,sd=1,lower.tail = F)
@@ -24,7 +24,7 @@ These exercises cover the sections of Statistics in R [Session1: data summary]("
 
 **bonus question (optional)**
 
-- load the gene expression matrix that has been created for this exercise from "data/gene_exp_matrix.RData"
+- load the gene expression matrix that has been created for this exercise from `"data/gene_exp_matrix.RData"`
 
 ```{r}
 load("../data/gene_exp_matrix.RData")
@@ -40,7 +40,7 @@ heatmap.2(gene_exp_matrix,symkey=FALSE, trace="none",cexCol=0.75,cexRow=0.35,
 
 ```
 
-- Use the *scale()* function to perform the Z-score transformation, and use the code above to generate the heatmap again (hint: read the help page of *?scale*, and you might need to use *t()* function as well)
+- Use the `scale()` function to perform the Z-score transformation, and use the code above to generate the heatmap again (hint: read the help page of `?scale`, and you might need to use `t()` function as well)
 
 ```{r,message=T}
 # option 1
@@ -49,5 +49,5 @@ heatmap.2(scaled_gene_exp_matrix,symkey=FALSE, trace="none",cexCol=0.75,cexRow=0
           density.info="none",Colv = F,dendrogram="row")
 ```
 
-However, the *heatmap.2()* function has a argument **scale**, which does the same thing for you....
+However, the `heatmap.2()` function has a argument called `scale`, which does the same thing for you....
 
