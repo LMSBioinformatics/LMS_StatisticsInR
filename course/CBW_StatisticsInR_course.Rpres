@@ -1041,7 +1041,8 @@ create a contigency table
 ```{r,prompt=F}
 cmatrix<-matrix(c(5,45,295,19655),
                 byrow=T,ncol=2,
-                dimnames=list(c("In.B","Not.In.B"),c("In.A","Not.In.A")))
+                dimnames=list(c("In.B","Not.In.B"),
+                              c("In.A","Not.In.A")))
 cmatrix
 
 ```
