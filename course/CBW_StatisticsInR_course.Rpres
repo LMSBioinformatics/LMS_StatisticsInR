@@ -561,6 +561,8 @@ plot(x, hx, type="l", lty=2, lwd=2, col="brown4",
 
 ```
 
+note: this plot is based on B(100, 0.2)
+
 Normal distribution (3/10)
 ========================================================
   
